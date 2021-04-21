@@ -19,4 +19,7 @@ node {
     echo "GIT_COMMIT_MSG: ${GIT_COMMIT_MSG}"
 
   }
+  stage ('build'){
+    sh 'docker build -t cursist/python:1'
+  }
 }
