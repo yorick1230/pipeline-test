@@ -11,5 +11,12 @@ node {
     echo "GIT_COMMITER_NAME: ${scmVars.GIT_COMMITER_NAME}"
     echo "GIT_COMMIT_MSG: ${scmVars.GIT_COMMIT_MSG}"
     echo "GIT_COMMIT_DESC: ${scmVars.GIT_COMMIT_DESC}"
+    
+    GIT_COMITTER_NAME = sh (script: 'git log -1 --pretty=%cn ${GIT_COMITTER_NAME}', returnStdout: true).trim()
+    echo "GIT_COMITTER_NAME: ${GIT_COMITTER_NAME}"
+   
+    GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT_MSG}', returnStdout: true).trim()
+    echo "GIT_COMMIT_MSG: ${GIT_COMMIT_MSG}"
+
   }
 }
