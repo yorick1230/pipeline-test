@@ -20,6 +20,6 @@ node {
 
   }
   stage ('build'){
-    sh 'docker build -t cursist/python:1'
+    sh 'docker build -t cursist/python:1 .'
   }
 }
