@@ -10,6 +10,6 @@ node {
     echo "GIT_COMMIT: ${scmVars.GIT_PREVIOUS_SUCCESFUL_COMMIT}"
     echo "GIT_COMMIT: ${scmVars.GIT_COMMITER_NAME}"
     echo "GIT_COMMIT: ${scmVars.GIT_COMMIT_MSG}"
-    echo "GIT_COMMIT: ${scmVars.GIT_DESC}"
+    echo "GIT_COMMIT: ${scmVars.GIT_COMMIT_DESC}"
   }
 }
