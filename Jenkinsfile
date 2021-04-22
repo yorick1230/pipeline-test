@@ -39,8 +39,5 @@ node {
       sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=flask-alpine -Dsonar.sources=."
     }
   }
-    
-  stage('CVS') {
-    sh"curl -s https://ci-tools.anchore.io/inline_scan-latest | bash -s -- -r cursist/python:1"
-  }
+  
 }
