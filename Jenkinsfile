@@ -32,13 +32,14 @@ node {
       cobertura coberturaReportFile: 'coverage-reports/coverage-.xml'
     }
   }
-  
+  /*
   stage('SonarQube') {
     def scannerHome = tool 'scanner';
     withSonarQubeEnv('SonarQube') {
       sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=flask-alpine -Dsonar.sources=."
     }
   }
+  */
   stage('Deploy') {
       sh "sed 's#127.0.0.1:30400/flask-alpine:version#192.168.99.101/cursist/python:1#' deployment.yaml | kubectl apply -n default -f -"
   }
