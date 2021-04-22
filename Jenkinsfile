@@ -32,11 +32,11 @@ node {
       cobertura coberturaReportFile: 'coverage-reports/coverage-.xml'
     }
   }
-}
 
-stage('SonarQube') {
-  def scannerHome = tool 'scanner';
-  withSonarQubeEnv('SonarQube') {
-    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=flask-alpine -Dsonar.sources=."
+  stage('SonarQube') {
+    def scannerHome = tool 'scanner';
+    withSonarQubeEnv('SonarQube') {
+      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=flask-alpine -Dsonar.sources=."
+    }
   }
 }
