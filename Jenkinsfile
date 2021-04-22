@@ -1,6 +1,6 @@
 node {
   // pipeline exercise scm stage
-  stage('scm') {
+  stage('Scm') {
     // obtain GitHub information
     final scmVars = checkout (scm)
     echo "GIT_COMMIT: ${scmVars.GIT_COMMIT}"
@@ -19,7 +19,7 @@ node {
     echo "GIT_COMMIT_MSG: ${GIT_COMMIT_MSG}"
 
   }
-  stage ('build'){
+  stage ('Build'){
     sh 'docker build -t cursist/python:1 .'
   }
   
