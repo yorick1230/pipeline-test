@@ -22,4 +22,13 @@ node {
   stage ('build'){
     sh 'docker build -t cursist/python:1 .'
   }
+  
+  docker.image('cursist/python:1').inside {
+        stage('Test') {
+            sh 'pytest --junitxml=reports/results.xml'
+            junit 'reports/*.xml' // after this, test results are shown in jenkins
+            sh 'coverage run test_app.py'
+            sh 'coverage xml -o coverage-reports/coverage-.xml'
+            cobertura coberturaReportFile: 'coverage-reports/coverage-.xml'
+  }
 }
