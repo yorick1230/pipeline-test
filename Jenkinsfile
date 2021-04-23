@@ -42,7 +42,7 @@ node {
   */
   stage('Deploy') {
       //sh "sed 's#127.0.0.1:30400/flask-alpine:version#192.168.99.101/cursist/python:1#' deployment.yaml | kubectl apply -n default -f -"
-    sh "kubectl apply -f depoyment.yaml"
+    sh "kubectl apply -f deployment.yaml"
   }
   
 }
