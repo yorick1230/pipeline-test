@@ -31,7 +31,7 @@ spec:
           tier: flask-alpine
     spec:
       containers:
-      - image: 127.0.0.1:30400/flask-alpine:version
+      - image: 192.168.99.101:5000/flask-alpine:1
         name: flask-alpine
         ports:
         - containerPort: 80
