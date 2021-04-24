@@ -22,6 +22,7 @@ node {
   stage ('Build'){
     sh 'docker build -t cursist/python:1 .'
   }
+  /*
   
   docker.image('cursist/python:1').inside {
     stage('Test') {
