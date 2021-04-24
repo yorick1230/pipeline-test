@@ -1,0 +1,57 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: C:\Users\jeroendw\.minikube\ca.crt
+    extensions:
+    - extension:
+        last-update: Fri, 05 Mar 2021 22:02:07 CET
+        provider: minikube.sigs.k8s.io
+        version: v1.18.1
+      name: cluster_info
+    server: https://192.168.99.103:8443
+  name: cicd
+- cluster:
+    certificate-authority: C:\Users\jeroendw\.minikube\ca.crt
+    extensions:
+    - extension:
+        last-update: Sat, 24 Apr 2021 16:19:56 CEST
+        provider: minikube.sigs.k8s.io
+        version: v1.18.1
+      name: cluster_info
+    server: https://192.168.99.101:8443
+  name: minikube
+contexts:
+- context:
+    cluster: cicd
+    extensions:
+    - extension:
+        last-update: Fri, 05 Mar 2021 22:02:07 CET
+        provider: minikube.sigs.k8s.io
+        version: v1.18.1
+      name: context_info
+    namespace: default
+    user: cicd
+  name: cicd
+- context:
+    cluster: minikube
+    extensions:
+    - extension:
+        last-update: Sat, 24 Apr 2021 16:19:56 CEST
+        provider: minikube.sigs.k8s.io
+        version: v1.18.1
+      name: context_info
+    namespace: default
+    user: minikube
+  name: minikube
+current-context: minikube
+kind: Config
+preferences: {}
+users:
+- name: cicd
+  user:
+    client-certificate: C:\Users\jeroendw\.minikube\profiles\cicd\client.crt
+    client-key: C:\Users\jeroendw\.minikube\profiles\cicd\client.key
+- name: minikube
+  user:
+    client-certificate: C:\Users\jeroendw\.minikube\profiles\minikube\client.crt
+    client-key: C:\Users\jeroendw\.minikube\profiles\minikube\client.key
