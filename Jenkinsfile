@@ -19,10 +19,11 @@ node {
     echo "GIT_COMMIT_MSG: ${GIT_COMMIT_MSG}"
 
   }
+  /*
   stage ('Build'){
     sh 'docker build -t cursist/python:1 .'
   }
-  /*
+  
   
   docker.image('cursist/python:1').inside {
     stage('Test') {
@@ -34,22 +35,21 @@ node {
     }
   }
   
-  /*
   stage('SonarQube') {
     def scannerHome = tool 'scanner';
     withSonarQubeEnv('SonarQube') {
       sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=flask-alpine -Dsonar.sources=."
     }
-    */
+
   
   stage ('Tag') {
     sh "docker tag cursist/python:1 localhost:5000/cursist/python:1"
   }
-         
+        
   stage ('Push') {
     sh "docker push localhost:5000/cursist/python:1"
   }
-         
+  */     
   stage('Deploy') {
     //sh "sed 's#127.0.0.1:30400/flask-alpine:version#192.168.99.101/cursist/python:1#' deployment.yaml | kubectl apply -n default -f -"
     sh "kubectl apply -f deployment.yaml"
