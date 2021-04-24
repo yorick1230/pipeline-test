@@ -31,7 +31,7 @@ spec:
           tier: cursist-python
     spec:
       containers:
-      - image: localhost:5000/cursist/python:latest
+      - image: localhost:5000/cursist/python1
         name: cursist-python
         ports:
         - containerPort: 80
