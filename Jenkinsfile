@@ -42,7 +42,7 @@ node {
     */
   
   stage ('Tag') {
-    sh "docker tag cursist/python:1 192.168.99.100/cursist/python:1"
+    sh "docker tag cursist/python:1 192.168.99.100:5000/cursist/python:1"
   }
          
   stage ('Push') {
