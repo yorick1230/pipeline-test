@@ -42,11 +42,11 @@ node {
     */
   
   stage ('Tag') {
-    sh "docker tag cursist/python:1 192.168.99.100:5000/cursist/python:1"
+    sh "docker tag cursist/python:1 localhost:5000/cursist/python:1"
   }
          
   stage ('Push') {
-    sh "docker push 192.168.99.100:5000/cursist/python:1"
+    sh "docker push localhost:5000/cursist/python:1"
   }
          
   stage('Deploy') {
