@@ -60,7 +60,7 @@ node {
     sh "export MINIKUBE_EXISTING_DOCKER_HOST='tcp://192.168.99.100:2376'" 
     sh "export MINIKUBE_EXISTING_DOCKER_CERT_PATH='C:/Users/jeroendw/.docker/machine/machines/default'"
     sh "export MINIKUBE_ACTIVE_DOCKERD='minikube'"
-    sh "kubectl apply -n default -f deployment.yaml"
+    sh "kubectl apply -config use-context minikube -n default -f deployment.yaml"
   }
   
 }
