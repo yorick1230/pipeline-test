@@ -53,7 +53,14 @@ node {
   stage('Deploy') {
     //sh "sed 's#127.0.0.1:30400/flask-alpine:version#192.168.99.101/cursist/python:1#' deployment.yaml | kubectl apply -n default -f -"
      //sh "docker pull localhost:5000/cursist/python:1"
-    sh "kubectl apply --kubeconfig='/minikube/profiles/minikube' -n default -f deployment.yaml"
+    sh "export DOCKER_TLS_VERIFY='1'"
+    sh "export DOCKER_HOST='tcp://192.168.99.101:2376'"
+    sh "export DOCKER_CERT_PATH='C:/Users/jeroendw/.minikube/certs'"
+    sh "export MINIKUBE_EXISTING_DOCKER_TLS_VERIFY='1'"
+    sh "export MINIKUBE_EXISTING_DOCKER_HOST='tcp://192.168.99.100:2376'" 
+    sh "export MINIKUBE_EXISTING_DOCKER_CERT_PATH='C:/Users/jeroendw/.docker/machine/machines/default'"
+    sh "export MINIKUBE_ACTIVE_DOCKERD='minikube'"
+    sh "kubectl apply -n default -f deployment.yaml"
   }
   
 }
