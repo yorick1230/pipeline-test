@@ -6,7 +6,7 @@ import hudson.tools.*
 
 // Required environment variables
 def sonar_name = "SonarQube"
-def sonar_server_url = "http://localhost:9000"
+def sonar_server_url = "http://192.168.99.100:9000"
 def sonar_auth_token = "aad91a0a62368eba7cefe8db91cfd2130a131c92"
 def sonar_mojo_version = ''
 def sonar_additional_properties = ''
