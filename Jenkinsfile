@@ -43,15 +43,11 @@ node {
 
   */
   stage ('Tag') {
-    sh "docker tag cursist/python:1 localhost:5000/cursist/python:1"
-        sh "docker tag cursist/python:1 wolfjde/python:1"
+    echo 'Tag!'
   }
         
   stage ('Push') {
-    sh "docker push localhost:5000/cursist/python:1"
-    docker.withRegistry('', 'dockerhub'){
-            sh "docker push wolfjde/python:1"
-        }
+    echo 'Push!'
     
   }
     
